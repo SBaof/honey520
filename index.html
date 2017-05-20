@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>520</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+  <link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
+  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+</head>
+
+<body>
+  	<header>
+		<video autoplay playsinline muted loop preload poster="assets/oceanshot.jpg">
+			<source src="assets/ocean-small.webm" />
+		</video>
+	 	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 285 80" preserveAspectRatio="xMidYMid slice">
+	    	<defs>
+			    <mask id="mask" x="0" y="0" width="100%" height="100%" >
+			      	<rect x="0" y="0" width="100%" height="100%" />
+			    	<text x="83"  y="30">DclouD</text>
+			    </mask>
+		  	</defs>
+			<rect x="0" y="0" width="100%" height="100%" />
+		</svg>
+	</header>
+
+	<div class="honey">
+		<div id="source" style="display: none;">
+			 <span class="darling block">Darling,</span>
+			 <p class="love">I love you always & forever...</p>
+			 <span class="yours block">Yours</span>
+			 <span class="sign">Baof</span>
+		</div>
+		<div id="output"></div>
+	</div>
+  
+    <script src="js/index.js"></script>
+    <script src="js/typing.js"></script>
+    <script>
+    	var typing = new Typing({
+	      source: document.getElementById('source'),
+	      output: document.getElementById('output'),
+	      delay: 100
+		});
+		typing.start();
+
+		const header = document.querySelector('header');
+		const honey = document.querySelector('.honey');
+
+		function resize () {
+			honey.style.top = - (header.offsetWidth / 60) + 'rem';
+		}
+
+		$(window).resize(resize);
+		setTimeout(resize);
+    </script>
+</body>
+</html>
