@@ -76,26 +76,6 @@ svg > rect {
     margin: 30px 0;
 }
 
-
-/*竖排*/
-
-@media screen and (max-aspect-ratio: 1/1) {
-    body {
-        min-width: 320px;
-        min-height: 510px;
-    }
-    .honey {
-        font-size: 1rem;
-        width: 240px;
-        height: 145px;
-        background-position: left top;
-    }
-    .honey .love {
-        line-height: 1rem;
-        margin: 10px 0;
-    }
-}
-
 .honey .yours {
     float: right;
     clear: left;
@@ -167,6 +147,29 @@ svg > rect {
     position: relative;
     max-width: 1200px;
     height: 100%;
+}
+
+/*竖排*/
+
+@media screen and (max-aspect-ratio: 1/1) {
+    body {
+        min-width: 320px;
+        min-height: 510px;
+    }
+    .honey {
+        font-size: 1rem;
+        width: 240px;
+        height: 145px;
+        background-position: left top;
+    }
+    .honey .love {
+        line-height: 1rem;
+        margin: 10px 0;
+    }
+
+    .loading {
+      font-size: 50pt;
+    }
 }
 
 
