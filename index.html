@@ -11,7 +11,7 @@
 </head>
 
 <body>
-  	<header>
+	<header style="display: none;">
 		<video autoplay playsinline muted loop preload poster="assets/oceanshot.jpg">
 			<source src="assets/ocean-small.webm" />
 		</video>
@@ -19,12 +19,16 @@
 	    	<defs>
 			    <mask id="mask" x="0" y="0" width="100%" height="100%" >
 			      	<rect x="0" y="0" width="100%" height="100%" />
-			    	<text x="83"  y="30">DclouD</text>
+			    	<text x="80"  y="30">DclouD</text>
 			    </mask>
 		  	</defs>
 			<rect x="0" y="0" width="100%" height="100%" />
 		</svg>
 	</header>
+
+	<div class="loading wave pos" id="load">
+		dcloud
+	</div>
 
 	<div class="honey">
 		<div id="source" style="display: none;">
@@ -38,6 +42,7 @@
   
     <script src="js/index.js"></script>
     <script src="js/typing.js"></script>
+    <script src="js/prefixfree.min.js"></script>
     <script>
     	var typing = new Typing({
 	      source: document.getElementById('source'),
@@ -46,15 +51,46 @@
 		});
 		typing.start();
 
-		const header = document.querySelector('header');
+		const body = document.querySelector('body');
 		const honey = document.querySelector('.honey');
+		const load = document.querySelector('#load');
+		const header = document.querySelector('header');
 
 		function resize () {
-			honey.style.top = - (header.offsetWidth / 60) + 'rem';
+			honey.style.top = (body.offsetWidth / 80) + 'rem';
 		}
 
 		$(window).resize(resize);
 		setTimeout(resize);
+
+		function setColor() {
+			newColor = Math.floor((Math.random() * 360));
+			body.style.background = `hsl(${newColor}, 30%,80%)`;
+			header.style.background = `hsl(${newColor}, 30%,80%)`;
+		}
+
+		body.addEventListener('click', setColor);
+		setTimeout(function () {
+			setColor();
+			setTimeout(arguments.callee, 3000);
+		}, 3000);
+
+		const target = '520';
+		let pressed = [];
+
+		// 设置键盘事件
+		window.addEventListener('keyup', (e) => {
+			pressed.push(e.key);
+			pressed.splice(- target.length -1, pressed.length - target.length);
+			if (pressed.join('').includes(target)) {
+				if (header.style.display == 'none') {
+					header.style.display = 'block';
+					load.style.display = 'none';
+					resize();
+				}
+			}
+		})
+
     </script>
 </body>
 </html>
